@@ -1,0 +1,54 @@
+<!-- Basic -->
+<!--
+<bcamp-list>
+  <ng-container *ngFor="let note of notes">
+    <span *bcampListItem>{{ note.text }}</span>
+  </ng-container>
+</bcamp-list>
+-->
+
+<!-- Two-Line List with button "reload" -->
+<button bcampButton style="width: 100%" *ngIf="reloadable" (click)="reload()">Reload</button>
+
+<br/>
+
+<bcamp-list>
+    <ng-container *ngFor="let note of (notes$ | async)">
+      <ng-container *bcampListItem>
+        <span bcampListItemText>{{ note.text }}
+          <span bcampListItemSecondaryText>{{ note.date | date }}</span>
+        </span>
+      </ng-container>
+    </ng-container>
+</bcamp-list>
+
+<!-- List Groups -->
+<!--
+<bcamp-list>
+    <ng-container *ngFor="let note of notes">
+      <h3 class="mdc-list-group__subheader" *bcampListItem>{{ note.id }}</h3>
+      <ul class="mdc-list" aria-orientation="vertical">
+          <li class="mdc-list-item" *bcampListItem>{{ note.text }}</li>
+          <li class="mdc-list-item" *bcampListItem>{{ note.date }}</li>
+      </ul>
+    </ng-container>
+</bcamp-list>
+-->
+
+<!--
+<div class="mdc-list-group">
+    <h3 class="mdc-list-group__subheader">List 1</h3>
+    <ul class="mdc-list" aria-orientation="vertical">
+      <li class="mdc-list-item">line item</li>
+      <li class="mdc-list-item">line item</li>
+      <li class="mdc-list-item">line item</li>
+    </ul>
+
+    <h3 class="mdc-list-group__subheader">List 2</h3>
+    <ul class="mdc-list" aria-orientation="vertical">
+      <li class="mdc-list-item">line item</li>
+      <li class="mdc-list-item">line item</li>
+      <li class="mdc-list-item">line item</li>
+    </ul>
+  </div>
+-->

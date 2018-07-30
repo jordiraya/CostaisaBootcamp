@@ -1,0 +1,29 @@
+<!-- Basic -->
+<!--
+<ul class="mdc-list" aria-orientation="vertical">
+    <li class="mdc-list-item" *ngFor="let item of items">
+      <ng-container [ngTemplateOutlet]="item.templateRef"></ng-container>
+    </li>
+</ul>
+-->
+
+<!-- Two-Line List -->
+
+<ul class="mdc-list" aria-orientation="vertical">
+    <li class="mdc-list-item" *ngFor="let item of items">
+      <!--<ng-container *ngIf="item.itemText" [ngTemplateOutlet]="item.templateRef"></ng-container> -->
+      <ng-container *ngIf="item.templateRef" [ngTemplateOutlet]="item.templateRef"></ng-container>
+    </li>
+</ul>
+
+
+<!-- List Groups -->
+<!--
+<div class="mdc-list-group">
+    <ul class="mdc-list" aria-orientation="vertical">
+        <li class="mdc-list-item" *ngFor="let item of items">
+          <ng-container [ngTemplateOutlet]="item.templateRef"></ng-container>
+        </li>
+    </ul>
+</div>
+-->

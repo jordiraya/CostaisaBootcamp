@@ -1,0 +1,153 @@
+***** Angular *****
+
+* plug-ins
+Angular Language Service
+angular2-inline
+Angular 6 snippets
+Debugger for Chrome
+Path Intellisense
+Editor Config for VS Code
+Prettier - Code Formatter
+
+
+* crear proyecto
+ng new bootcamp-client
+
+
+* estructura de proyectos
+/src				fuentes
+	/app
+	/assets
+	/environment
+/node-modules		dependencias
+/e2e				tests end-to-end-to-end
+tslint.json			reglas
+tsconfig.json		config typescript
+protractor.conf.js	config protractor
+package.json		dependencias (como pom.xml)
+package-lock.json	snapshot de la instalación
+karma.conf.js		test unitario en navegadores
+.editorconfig		config del editor
+.angular-cli.json	config angular-cli
+
+* estructura para múltiples proyectos
+/apps
+	/personal-diary
+		/e2e (mover)
+		/src (mover)
+/libs
+
+
+* material.io
+https://material.io/develop/web/components/top-app-bar/
+http://google.github.io/material-design-icons/
+
+
+* componente toobar en lib para reutilizar
+libs/ui/toolbar/components
+	toolbar.component.html
+	toolbar.component.ts
+libs/ui/toolbar/directives
+toolbar.module.ts	
+
+
+* alias para rutas
+definir alias en tsconfig.json para la ruta a libs
+    "baseUrl": ".",
+    "paths": {
+      "@bcamp/*": ["libs/*"]
+    },
+
+usar el alias en app.module.ts
+import { ToolbarModule } from '@bcamp/ui/toolbar/toolbar.module';
+
+
+* directivas
+ng-content		proyecta el contenido en el template
+ng-container	
+ng-template
+
+
+* decorators para acceder a elemetos del template
+@ViewChild: 1 elementos declarados en el template
+@ViewChildren: n
+@ContentChild: 1 elemento proyectado en el template
+@ContentChildren: n
+
+
+* componentes
+- smart
+- de presentación (todo su output viene de inputs de pantalla)
+
+
+
+***** Spring *****
+
+* Capas de aplicación
+Controller/Resource: puntos de entrada
+Services: negocio
+Repository: datos
+
+* Aplicación Gradle
+settings: configuración
+build: dependencias
+
+* Mirar mapeo de excepciones con códigos de error HTTP: Controller adviser
+
+* Mirar API streams Java 8
+
+* Mirar herramienta para documentar API Rest: swagger
+http://localhost:8080/swagger-ui.html
+
+* h2 console: http://localhost:8080/h2-console
+
+* Mirar http://www.baeldung.com/
+
+
+*** Angular ***
+
+import { HttpClient } from '@angular/common/http'; -> este, no el otro
+
+* observables
+librería RxJS para los observables (API para programación asíncrona) http://reactivex.io/
+un observable de boolean va emitiendo booleans a lo largo del tiempo
+te has de subscribir al observable
+la convención es poner $ al final de la variable observable
+notes$: Observable<Note[]>;
+
+uso:
+<ng-container *ngFor="let note of (notes$ | async)">
+async es un pipe de Angular para gestionar el asincronismo
+
+config proxy.config.json
+npm run start
+
+* otra manera de definir los providers, con Factory
+  providers: [
+    {
+      provide: ApiService,
+      deps: [API_PREFIX, HttpClient], // params del constructor para la inyección, API_PREFIX es InjectionToken
+      useFactory: apiServiceFactory
+    }
+  ]
+
+export function apiServiceFactory(urlPrefix: string, httpClient: HttpClient) {
+  return new ApiService(urlPrefix, httpClient);
+}
+
+* control de versiones
+gitlab
+al iniciar tarea se crea una rama
+prefijos de rama: master, feature, hotfix
+ex: feature/BCAMP-001
+
+* internacionalización Angular
+la librería más utilizada es ngx-translate
+npm install @ngx-translate/core@9.1.1
+
+* seguridad
+protocolo oauth 2 de redes sociales
+en la práctica será con token (bearer token)
+Spring security da el token y se añaden en Angular con los interceptores HTTP
+
+

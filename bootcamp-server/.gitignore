@@ -1,0 +1,45 @@
+# General
+bin/
+build/
+target/
+tmp/
+/Servers/
+.externalToolBuilders/
+.recommenders/
+
+*.tmp
+*.bak
+*.swp
+*~.nib
+*.launch
+
+local.properties
+.metadata
+.loadpath
+.recommenders
+.factorypath
+.target
+.tern-project
+.texlipse
+
+# Eclipse (used by import from team project set)
+#.project
+#.classpath
+#.settings/
+
+# Python
+#*.pydevproject
+
+# C/C++
+#.cproject
+
+# PHP
+#.buildpath
+
+# Scala
+.cache-main
+.scala_dependencies
+.worksheet
+
+# Spring Tool Suite
+#.springBeans
